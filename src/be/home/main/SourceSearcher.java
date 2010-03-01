@@ -13,6 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+
+import be.home.ui.components.FileOverviewPanel;
 
 /**
  * 
@@ -23,6 +26,7 @@ import javax.swing.JTextField;
 public class SourceSearcher extends JFrame
 {
 	private JPanel					pnl_top;
+	private FileOverviewPanel		pnl_file_list;
 	private JTextField				txt_find;
 	private JButton					btn_find;
 	private static SourceSearcher	source_searcher;
@@ -83,11 +87,25 @@ public class SourceSearcher extends JFrame
 		c.insets = new Insets( 10, 10, 10, 10 );
 		pnl_top.add( btn_find, c );
 		
+		pnl_file_list = new FileOverviewPanel();
+	
+		add(pnl_file_list, BorderLayout.WEST);
 		add(pnl_top, BorderLayout.NORTH);
 	}
 
 	public static void main( String[] args )
 	{
+		try
+		{
+			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+		} catch ( Exception e )
+		{
+			/*
+			 * Unexpected error
+			 */
+			System.err.println("Theming error: " + e.getMessage());
+		}
+		
 		javax.swing.SwingUtilities.invokeLater( new Runnable()
 		{
 			@Override
