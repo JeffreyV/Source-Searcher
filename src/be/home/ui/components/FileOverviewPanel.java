@@ -11,6 +11,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
+import be.home.classes.Config;
+import be.home.classes.SourceFile;
+
 public class FileOverviewPanel extends JPanel
 {
 	/*
@@ -45,8 +48,11 @@ public class FileOverviewPanel extends JPanel
 		lst_files.setModel( model_list_files );
 		lst_files.setCellRenderer( lst_renderer = new FileListRenderer() );
 		
-		model_list_files.addElement( "Test" );
-		model_list_files.addElement( "Test Again" );
+		SourceFile f = new SourceFile( "/home/jeffrey/Programming/Java/Koning.java", Config.get( "extensions.xml" ).getAbsolutePath() );
+		SourceFile f2 = new SourceFile( "/home/jeffrey/Programming/CPlusPlus/count_chars.cpp", Config.get( "extensions.xml" ).getAbsolutePath() );
+		
+		model_list_files.addElement( f );
+		model_list_files.addElement( f2 );
 		
 		// Add to panel
 		constr.fill =  GridBagConstraints.BOTH;

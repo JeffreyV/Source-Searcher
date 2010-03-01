@@ -28,7 +28,7 @@ public class FileListRenderer extends JLabel implements ListCellRenderer
 			int index, boolean isSelected, boolean cellHasFocus )
 	{
 		// Workaround to create insets
-		setBorder( BorderFactory.createEmptyBorder( 10,10,10,10) );
+		setBorder( BorderFactory.createEmptyBorder( 5,5,5,5) );
 		
 		if ( value instanceof SourceFile )
 		{

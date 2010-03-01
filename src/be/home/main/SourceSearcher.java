@@ -2,12 +2,12 @@ package be.home.main;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GraphicsConfiguration;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import be.home.classes.Config;
 import be.home.ui.components.FileOverviewPanel;
 
 /**
@@ -25,6 +26,8 @@ import be.home.ui.components.FileOverviewPanel;
  */
 public class SourceSearcher extends JFrame
 {
+	// TODO Constants
+	
 	private JPanel					pnl_top;
 	private FileOverviewPanel		pnl_file_list;
 	private JTextField				txt_find;

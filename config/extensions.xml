@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+	<language>
+		<name>C++</name>
+		<icon>icons/files/source-cpp-icon.png</icon>
+		<extensions>
+			<extension>cpp</extension>
+			<extension>h</extension>
+			<extension>hpp</extension>
+		</extensions>
+	</language>
+	
+	<language>
+		<name>Java</name>
+		<icon>icons/files/java_icon2.gif</icon>
+		<extensions>
+			<extension>java</extension>
+		</extensions>
+	</language>
+</languages>
