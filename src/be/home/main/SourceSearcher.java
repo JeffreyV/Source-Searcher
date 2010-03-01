@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +16,8 @@ import javax.swing.UIManager;
 
 import be.home.ui.components.AutocompletionTextField;
 import be.home.ui.components.FileOverviewPanel;
+import be.home.ui.components.SourceSearcherPopupMenu;
+import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -34,6 +37,7 @@ public class SourceSearcher extends JFrame
     private FileOverviewPanel            pnl_file_list;
     private AutocompletionTextField      txt_find;
     private JButton                      btn_find, btn_menu;
+    private SourceSearcherPopupMenu      mnu_main_menu;
     public static SourceSearcher         source_searcher;
 
     public SourceSearcher() throws HeadlessException
@@ -79,6 +83,13 @@ public class SourceSearcher extends JFrame
         btn_find = new JButton( "Find" );
 
         btn_menu = new JButton( "Menu >" );
+        btn_menu.addActionListener( new ActionListener() {
+
+            public void actionPerformed( ActionEvent e )
+            {
+                mnu_main_menu.show(source_searcher, btn_menu.getX() + btn_menu.getWidth() + 5, btn_menu.getY() + btn_menu.getHeight());
+            }
+        });
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -102,6 +113,8 @@ public class SourceSearcher extends JFrame
         pnl_top.add( btn_menu, c);
 
         pnl_file_list = new FileOverviewPanel();
+
+        mnu_main_menu = new SourceSearcherPopupMenu();
 
         add( pnl_file_list, BorderLayout.WEST );
         add( pnl_top, BorderLayout.NORTH );
